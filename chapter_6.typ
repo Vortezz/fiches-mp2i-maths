@@ -143,5 +143,115 @@ On admet l'*inégalité arithmético-géométrique*, ainsi pour tout $X in (RR^(
 
 $ 1/n (x_1 + ... + x_n) <= root(n, x_1 ... x_n) $
 
+== Division euclidienne dans $RR$
+
+Soit $x, y in RR$ tel qu'il existe $n in NN$ tel que $x < n y$ d'après la *propriété d'Archimède*. Elle est reformulable en disant que pour tout $y > 0$, la suite $(n y)_(n in NN)$ tend vers $+ infinity$ lorsque $n$ tend vers $+ infinity$.
+
+Pour tout $x > 0$ et tout $y > 0$, il existe un rationnel $r$ tel que $0 < r x < y$.
+
+Soit $x, y in RR^(+*)$, il existe un unique $n in NN$ tel que $n y <= x < (n + 1) y$. Et il existe un unique $n' in NN$ tel que $n' x < x <= (n' + 1)y$. Sauf quand $x/y$ est entier, $n=n'$, le résulat se généralise à $x$ négatif.
+
+On a la *division euclidienne*, ainsi :
+
+- Soit $x in RR$ et $y in RR^(+*)$, il existe un unique entier $n$ et un unique réel $r in [0, y[$ tel que $x=n y + r$
+- Soit $x in RR$ et $y in RR^(*)$, il existe un unique entier $n$ et un unique réel $r in [0, |y|[$ tel que $x=n y + r$
+
+== Densité de $QQ$ et $RR \\ QQ$ dans $RR$
+
+Un sous ensemble $E$ de $RR$ est *dense* dans $RR$, si pour tout $(x,y) in RR^2$ tel que $x<y$, il existe $z in E$ tel que $x<z<y$.
+
+Les ensembles $QQ$ et $RR \\ QQ$ dans $RR$.
+
+== Partie entière, partie décimale
+
+La *partie entière* d'un réel $x$, notée $floor(x)$ est le quotient de la division euclidienne de $x$ par $1$.
+
+Le reste de cette division est parfois noté ${x}$, appellé *partie décimale*.
+
+Soit $x in RR$,
+
+- $floor(x) = max({n in ZZ | n <= x})$
+- $floor(x) = min({n in ZZ | n > x}) - 1$
+- $floor(x)$ est l'unique entier tel que $floor(x) <= x < floor(x)+1$
+- $floor(x)$ est l'unique entier tel que $x - 1 < floor(x) <= x$
+
+On définit parfois aussi la *partie entière par excès*, notée $ceil(x)$, comme étant le plus petit entier supérieur ou égal à $x$ : $ceil(x) = min({n in ZZ | n >= x})$.
+
+On a alors $x in RR$,
+
+- $ceil(x) = cases(floor(x) + 1 "si" x in.not ZZ, floor(x) "si" x in ZZ)$
+- $floor(-x) = -ceil(x)$
+
+On a les propriétés suivantes pour la partie entière : 
+
+- $forall x,y in RR, floor(x) + floor(y) + 1 >= floor(x+y) > floor(x) + floor(y)$
+- $forall x,y in RR^+, floor(x y) >= floor(x) floor(y)$
+- $forall x in RR, forall n in ZZ, floor(x + n) = floor(x) + n$
+
+== Représentation décimale
+
+On note $DD$ l'ensemble des *nombres décimaux*, c'est à dire des réels $x$ tel qu'il existe $n in NN$ tel que $10^n x$ est entier.
+
+Étant donné $n in NN$, on note $DD_n$ l'ensemble des décimaux tel que $10^n x in ZZ$.
+
+Soit $x in RR, n in NN^*$, il existe un unique élément $y in D_n$ tel que $y_n <= x < y_n + 10^(-n)$.
+
+- $y_n$ est appellé *valeur approchée décimale* à la précision $10^(-n)$ *par défaut*.
+- $y_n + 10^(-n)$ est appellé *valeur approchée décimale* à la précision $10^(-n)$ *par excès*.
+
+Pour tout $n in NN$, il existe $a_n in [|0, 9|]$ tel que $y_n - y_(n-1) = a_n/10^n$.
+
+Soit $x in RR^+$, il existe pour tout $n in NN^*$, des entiers $a_n in [|0,9|]$ tel que :
+
+- Il existe $n_0 in ZZ$ tel que $forall n <= n_0, a_n = 0$
+- $ x = sum_(n = - infinity)^(+ infinity) a_n 10^(-n) = sum_(n = n_0)^0 a_n 10^(-n) + sum_(n = 1)^(+ infinity) a_n 10^(-n) = sum_(n = n_0)^0 a_n 10^(-n) + lim_(N -> + infinity) sum_(n = 1)^N a_n 10^(-n) $
+- Sauf si pour tout $n in NN^*, a_n = 9$, on a alors :
+$ floor(x) = sum_(n = n_0)^0 a_n 10^(-n) " et" " " sum_(n = 1)^N a_n 10^(-n) $
+
+Soit $x in RR^*$, alors :
+
+- Si $x$ n'est pas décimal, alors $x$ admet un unique développement décimal.
+- Si $x$ est décimal, $x$ admet deux développements décimaux exactement, l'un terminant uniquement par des $9$, l'autre uniquement par des $0$.
+
+On appelle *développement décimal propre* de $x$ l'unique développement de $x$ si $x$ n'est pas décimal, ou l'unique développement de $x$ terminant par des $0$ si $x$ est décimal. Ainsi, tout réel admet un unique développement décimal propre.
+
+= Intervalles
+
+== Description des intervalles
+
+Soit $E$ un sous ensemble de $RR^n$, on dit que $E$ est *convexe* si et seulement si pour tout couple de points $A$ et $B$ de $E$, le segment $[A B]$ est entièrement inclus dans $E$.
+
+Un *intervalle* $I$ de $RR$ est un sous-ensemble convexe $I$ de $RR$, c'est à dire tel que : $forall (a,b) in I^2, forall x in RR, a <= x <= b ==> x in I$
+
+Tout intervalle $I$ de $RR$ est d'une des formes suivantes, pour certaines valeurs réelles $a$ et $b$ :
+
+#grid(
+    columns: (50%, 50%),
+    {
+      list(
+        $[a, b] = {x in RR, a <= x <= b}, a <= b$,
+        $]a, b[ = {x in RR, a < x < b}, a < b$,
+        $[a, b[ = {x in RR, a <= x < b}, a < b$,
+        $]a, b] = {x in RR, a < x <= b}, a < b$,
+        $[a, + infinity[ = {x in RR, x >= a}$,
+      )
+    },
+    {
+      list(
+        $]a, + infinity[ = {x in RR, x > a}$,
+        $]- infinity, b] = {x in RR, x <= b}$,
+        $]- infinity, b[ = {x in RR, x < b}$,
+        $]- infinity, + infinity[ = RR$,
+        $emptyset$,
+      )
+    }
+)
+
+On dit qu'un intervalle est :
+
+- *ouvert* si il est de forme $]a, b[, ]a, + infinity[, ]- infinity, b[, RR "et" emptyset$
+- *fermé* si il est de forme $[a, b], [a, + infinity[, ]- infinity, b], RR "et" emptyset$
+- *semi-ouvert* si il est de forme $[a, b[ "et" ]a, b]$
+
 // Do not touch
 #block(height: 400pt)
