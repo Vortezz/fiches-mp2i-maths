@@ -253,5 +253,58 @@ On dit qu'un intervalle est :
 - *fermé* si il est de forme $[a, b], [a, + infinity[, ]- infinity, b], RR "et" emptyset$
 - *semi-ouvert* si il est de forme $[a, b[ "et" ]a, b]$
 
+== Intervalles et topologie
+
+La notion d'intervalle est liée à la notion de topologie. On utilisera une brève introduction des ces notions dans $RR^n$, en utilisant la distance euclidienne canonique : $d(X,Y) = sqrt(sum^n_(i=1) (y_i-x_i)^2)$. Si $x, y in RR$, on a $d(x,y) = |x-y|$.
+
+
+Soit $X in RR^n$ et $r in RR^+$, on a :
+- On a la *boule ouverte* de centre $X$ et de rayon $r$ : B(X,r) = $circle(B)(X,r) = {Y in RR^n, d(X,Y) < r}$.
+- On a la *boule fermée* de centre $X$ et de rayon $r$ : $overline(B)(X,r) = {Y in RR^n, d(X,Y) <= r}$.
+
+Dans $RR$ les boules ouvertes et fermées sont des intervalles, $B(x,r) = ]x-r, x+r[$ et $overline(B)(x,r) = [x-r, x+r]$. De fait, _tout intervalle ouvert est une boule ouverte_, et _tout intervalle fermé est une boule fermée_. Soit $]a,b[ = B((a+b)/2,(a-b)/2)$ et $[a,b] = overline(B)((a+b)/2,(a-b)/2)$.
+
+La majoration de certaines _valeurs absolue_ se traduit par l'_appartenance à une boule fermée_, ainsi $|x-a| <= r$ est équivalent à $x in overline(B)(a,r)$ et par l'_appartenance à une boule ouverte_, ainsi $|x-a| < r$ est équivalent à $x in B(a,r)$.
+
+Soit $x in RR^n$, un *voisinage* de $x$ est un ensemble $V$ tel qu'il existe une boule ouverte centrée en $x$ et incluse dans $V$ :
+$ exists epsilon > 0, B(x,epsilon) subset V, "i.e." exists epsilon > 0, forall y in E, d(x,y) < epsilon ==> y in V $ 
+
+En gros, $V$ est un voisinage de $x$ si $x$ est à _l'intérieur_ de $V$, et non sur le bord.
+
+Un *ouvert* $U$ de $RR^n$ est un sous ensemble $U$ de $RR^n$ tel que pour tout $x in U$, $U$ est un voisinage de $x$. $U in RR^n$ est ouvert ssi : $forall x in U, exists epsilon > 0, B(x,epsilon) subset U$.
+
+Un sous-ensemble $F$ de $RR^n$ est _fermé_ si et seulement si _son complémentaire $C_E F$ est ouvert_.
+
+On a :
+- _Toute union quelconque d'ouverts est un ouvert_
+- _Toute intersection _finie_ d'ouverts est un ouvert_
+- _Toute intersection quelconque de fermés est un fermé_
+- _Toute union _finie_ de fermés est un fermé_
+
+On a les contre-exemples suivants :
+
+- Pour une intersection infinie d'ouverts, on a $sect.big_(n=1)^(+ infinity) ]-1/n,1[ = [0,1[$
+- Pour une union infinie de fermés, on a $union.big_(n=1)^(+ infinity) [1/n, 1] = ]0,1]$
+
+= Droite achevée $overline(RR)$
+
+La *droite achevée* $overline(RR)$ est l'ensemble $RR union {- infinity, + infinity}$.
+
+On peut prolonger l'ordre de $RR$ à $overline(RR)$ en posant $- infinity <= x <= + infinity$ pour tout $x in overline(RR)$.
+
+On peut prolonger partiellement les opérations $+$ et $times$ à $overline(RR)$ en posant :
+
+- $- (+ infinity) = - infinity$
+- $forall x in overline(RR)\\{- infinity}, x + (+ infinity) = + infinity$
+- $forall x in overline(RR)\\{+ infinity}, x + (- infinity) = - infinity$
+- $1/(+ infinity) = 1/(- infinity) = 0$
+- $forall x in overline(RR)^*_+, x times (+ infinity) = + infinity, x times (- infinity) = - infinity$
+- $forall x in overline(RR)^*_-, x times (+ infinity) = - infinity, x times (- infinity) = + infinity$
+
+#emoji.warning *Attention* : Il existe certaines opérations qui ne sont pas définies, et définissent les _formes indéterminées_ de la somme et du
+produit : $- infinity + (+ infinity), 0 times (+infinity) "et" 0 times (- infinity)$
+
+On peut étendre la _propriété fondamentale de $RR$_ dans $overline(RR)$, ainsi _tout sous ensemble de $overline(RR)$ admet une borne supérieure dans $overline(RR)$_. On a aussi _tout sous ensemble de $overline(RR)$ admet une borne inférieure dans $overline(RR)$_.
+
 // Do not touch
 #block(height: 400pt)
