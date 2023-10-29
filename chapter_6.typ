@@ -305,6 +305,3 @@ On peut prolonger partiellement les opérations $+$ et $times$ à $overline(RR)$
 produit : $- infinity + (+ infinity), 0 times (+infinity) "et" 0 times (- infinity)$
 
 On peut étendre la _propriété fondamentale de $RR$_ dans $overline(RR)$, ainsi _tout sous ensemble de $overline(RR)$ admet une borne supérieure dans $overline(RR)$_. On a aussi _tout sous ensemble de $overline(RR)$ admet une borne inférieure dans $overline(RR)$_.
-
-// Do not touch
-#block(height: 400pt)
